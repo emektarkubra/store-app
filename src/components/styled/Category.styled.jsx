@@ -6,4 +6,5 @@ export const CategoryListItem = styled.li`
   font-size: 18px;
   display: block;
   padding: 7px;
+  
 `;
