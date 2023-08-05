@@ -7,7 +7,7 @@ export default function Navbar() {
       <StyledNavbar>
         <div className="container">
           <div className="navbar-brand">
-            <span className="nav-brand">Navbar</span>
+            <span className="nav-brand">K-Store</span>
           </div>
           <div className="navbar-collapse" id="navbar-collapse">
             <div className="navbar-nav">
@@ -22,6 +22,12 @@ export default function Navbar() {
               </NavLink>
               <NavLink className="nav-link" to="/contact">
                 Contact
+              </NavLink>
+              <NavLink className="nav-link" to="/login">
+                Sign in
+              </NavLink>
+              <NavLink className="nav-link" to="/signup">
+                Sign up
               </NavLink>
             </div>
           </div>
