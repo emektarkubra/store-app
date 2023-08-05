@@ -12,7 +12,6 @@ export default function ProductsLayout() {
     <>
       <StyledProductsLayout className="container">
         <div className="products">
-          <h1>Products:</h1>
           <Outlet />
         </div>
         <div className="categories">

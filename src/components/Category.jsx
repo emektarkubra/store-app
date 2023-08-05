@@ -1,12 +1,27 @@
-import { Link, useParams } from "react-router-dom";
-import { CategoryListItem } from "./styled/Category.styled";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import ProductCard from "./ProductCard";
 
-export default function Category({ category }) {
+export default function Category() {
+  const params = useParams()
+  console.log(params)
+
+  const [categoryProducts, setCategoryProducts] = useState([])
+
+
+  useEffect(()=> {
+    fetch(`https://fakestoreapi.com/products/category/${params.categoryName}`)
+    .then(res => res.json())
+    .then (res => setCategoryProducts(res))
+    
+  },[params])
+
   return (
     <>
-      <CategoryListItem className="list-group-item">
-        {category.toUpperCase()}
-      </CategoryListItem>
+    {categoryProducts.map(product => <ProductCard product={product} />)}
+    
+      
     </>
   );
 }

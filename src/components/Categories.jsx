@@ -11,8 +11,8 @@ export default function Categories() {
     <>
       <StyledCategoriesList className="list-groups">
         {categories.map((category, index) => (
-          <Link key={index}>
-            <Category category={category} />{" "}
+          <Link to={`/products/category/${category}`} key={index}>
+            <li className="list-group-item">{category.toUpperCase()}</li>
           </Link>
         ))}
       </StyledCategoriesList>
