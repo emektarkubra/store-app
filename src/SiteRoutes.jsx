@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import ProductsLayout from "./pages/ProductsLayout";
+import Signup from "./pages/Signup";
 
 export default function SiteRoutes() {
   return (
@@ -20,6 +21,7 @@ export default function SiteRoutes() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="*" element = {<PageNotFound />}  />
       </Routes>
     </>
