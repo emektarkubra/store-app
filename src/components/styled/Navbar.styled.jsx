@@ -24,4 +24,7 @@ export const StyledNavbar = styled.nav`
   & > div > div > div > .nav-link :visited {
     color: white;
   }
+  &>div>div>div>span {
+    cursor : pointer;
+  }
 `;
