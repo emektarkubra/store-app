@@ -7,13 +7,22 @@ export const StyledNavbar = styled.nav`
   font-size: 18px;
   padding: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   justify-content: center;
 
   & > .container {
     display: flex;
     justify-content: space-between;
+    
   }
+
+  & > .container >.navbar-head {
+    width : 380px;
+    display : flex;
+    justify-content : space-around;
+  }
+
+
 
   & > div > div > div > .nav-link {
     color: white;

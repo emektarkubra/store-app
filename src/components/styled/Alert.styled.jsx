@@ -5,15 +5,15 @@ export const StyledAlertBox = styled.div`
   border: 1px solid #2c0b0e;
   color: rgb(230, 237, 243);
   border-radius: 4.5px;
-  font-size: 14px;
-  width: 290px;
+  font-size: 16px;
+  width: 324px;
   height: 40px;
   margin: auto;
-  margin-top: 8vw;
+  margin-top: 1vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px;
+  padding: 10px;
 `;
 
 export const StyledSuccessAlertBox = styled(StyledAlertBox)`

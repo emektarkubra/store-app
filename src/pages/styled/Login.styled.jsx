@@ -1,14 +1,36 @@
 import { styled } from "styled-components";
 
 export const StyledLoginBox = styled.div`
-  margin-top: 5vw;
+  margin-top: 1vw;
 
   & > div > button {
-    background-color: rgb(132, 32, 41);
+    background-color: #051b11;
     border: none;
     font-size: 14px;
-    color: rgb(44, 11, 14);
+    color: #0f5132;
     cursor: pointer;
+  }
+
+  &> div> .brand {
+    width : 100px;
+    height : 100px;
+    overflow : hidden;
+    margin: auto;
+
+  }
+ 
+  &> div> .brand > img{
+    width : 100px;
+    height : 100px;
+  }
+  &> div> p {
+    width: 290px;
+    margin: auto;
+    /* padding: 2vw;   */
+    font-size : 24px;
+    text-align : center;
+  
+
   }
 
   & > div > button :hover {
