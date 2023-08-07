@@ -1,10 +1,10 @@
-
 import { useContext } from "react";
 import { StyledAlertBox, StyledSuccessAlertBox } from "../components/styled/Alert.styled";
 import { SignContext } from "../context/SignContext";
 import { StyledSignupBox } from "./styled/Signup.styled";
 import { BsX } from "react-icons/bs";
-import { Navigate } from "react-router-dom";
+import logo from "../assest/logo.png"
+import { Link } from "react-router-dom";
 
 export default function Signup() {
 
@@ -15,12 +15,16 @@ export default function Signup() {
 
     return (
         <StyledSignupBox className="loginBox">
+            <div className="logoBox">
+                <div className="brand">
+                    <img src={logo} alt="" />
+                </div>
+                <p>Welcome to K-Store! </p>
+            </div>
             {
-                exist ? <StyledAlertBox>User is exist <button> <BsX /></button> </StyledAlertBox> : (userAdded && null)
+                userAdded ? (exist ? <StyledAlertBox>User is exist <button> <BsX /></button> </StyledAlertBox> : null) : null
             }
-
             <div className="loginFormBox">
-                <div>Welcome to K-Store! Let’s begin the adventure</div>
                 <form>
                     <div className="inputEmail">
                         <label htmlFor="inputEmail" className="form-label">Enter your email*</label>
@@ -36,6 +40,9 @@ export default function Signup() {
                     </div>
                     <button onClick={handleSignup} type="submit" className="btn btn-primary">Sign up</button>
                 </form>
+            </div>
+            <div className="loginAccountBox">
+                <span>Already have an account? <Link to="/login">Login in your account.</Link> </span>
             </div>
         </StyledSignupBox>
 

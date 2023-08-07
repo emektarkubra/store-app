@@ -17,6 +17,7 @@ export default function SignContextProvider({ children }) {
   const [user, setUser] = useState(defaultUser);
   const [userList, setUserList] = useState([]);
   const [userListcount, setUserListCount] = useState(0);
+  const [userAdded, setUserAdded] = useState(false);
 
   useEffect(() => {
     const storedUserList = JSON.parse(localStorage.getItem("userList"));
@@ -39,8 +40,18 @@ export default function SignContextProvider({ children }) {
   }
 
   function handleSignup(e) {
-    setUserList((prev) => [...prev, user]);
-    setUserListCount((prev) => prev + 1);
+    const isAdded = userList.some(
+      (loginUser) => loginUser.email === user.email
+    );
+    if (!isAdded) {
+      const newUserList = [...userList, user];
+      setUserList(newUserList);
+      setUserListCount((prev) => prev + 1);
+      // Kullanıcı eklenip eklenmediğini başka bir bileşene geçirme
+      setUserAdded(true);
+      navigate("/login");
+    }
+
     e.preventDefault();
   }
 
@@ -83,9 +94,16 @@ export default function SignContextProvider({ children }) {
       (user) =>
         user.email === userValue.email && user.password === userValue.password
     );
-    setLoginUser(loginUser);
-    setOnlineUser(loginUser);
-    setOnlineUserCount((prev) => prev + 1);
+
+    if(loginUser){
+      setLoginUser(loginUser);
+      setOnlineUser(loginUser);
+      setOnlineUserCount((prev) => prev + 1);
+      loginUser === undefined ? navigate("/login") : navigate("/");
+    }else {
+      setOnlineUser("")
+    }
+    
     e.preventDefault();
   }
 
@@ -93,6 +111,7 @@ export default function SignContextProvider({ children }) {
     setOnlineUser(null);
     setOnlineUserCount((prev) => prev + 1);
     navigate("/login");
+    setUserAdded(false);
   }
 
   return (
@@ -107,6 +126,8 @@ export default function SignContextProvider({ children }) {
           onlineUser,
           userList,
           loginUser,
+          user,
+          userAdded,
         }}>
         {children}
       </SignContext.Provider>

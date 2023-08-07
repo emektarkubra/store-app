@@ -6,20 +6,23 @@ import { StyledLoginBox } from "./styled/Login.styled";
 import { BsX } from "react-icons/bs";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import logo from "../assest/logo.png"
 
 
 export default function Login() {
 
     const { handleChangeLoginInput, handleLogin, onlineUser, userAdded } = useContext(SignContext)
-
-
-
     return (
         <>
             <StyledLoginBox className="loginBox">
+                <div className="logoBox">
+                    <div className="brand">
+                        <img src={logo} alt="" />
+                    </div>
+                    <p>Login in to K-Store</p>
+                </div>
                 {
-                    onlineUser === undefined ? <StyledAlertBox>Incorrect username or password. <button> <BsX /></button> </StyledAlertBox> : (userAdded ? <StyledSuccessAlertBox>kayıt başarılı giriş yapın</StyledSuccessAlertBox> : null)
-
+                    onlineUser === null ? (userAdded ? <StyledSuccessAlertBox>Congratulations,registered. Login your account <button> <BsX /></button></StyledSuccessAlertBox> : null) : <StyledAlertBox>Incorrect username or password. <button> <BsX /></button> </StyledAlertBox>
                 }
                 <div className="loginFormBox">
                     <form onSubmit={handleLogin}>
@@ -35,10 +38,9 @@ export default function Login() {
                             <input onChange={handleChangeLoginInput} type="checkbox" className="form-check-input" id="check" name="check" required />
                             <label className="form-check-label" htmlFor="check">Check me out</label>
                         </div>
-                        <button type="submit" className="btn btn-primary">Sign in</button>
+                        <button type="submit" className="btn btn-primary">Login in</button>
                     </form>
                 </div>
-
                 <div className="createAccountBox">
                     <span>New to K-Store? <Link to="/signup">Create an account.</Link> </span>
                 </div>
