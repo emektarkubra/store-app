@@ -10,36 +10,40 @@ export default function Navbar() {
     <>
       <StyledNavbar>
         <div className="container">
-          <div className="navbar-brand">
+          <div className="navbar-head">
             <span className="nav-brand">K-Store</span>
+            <div className="navbar-nav">
+              <NavLink className="nav-link" to="/">
+                  Home
+                </NavLink>
+                <NavLink className="nav-link" to="/products">
+                  Products
+                </NavLink>
+                <NavLink className="nav-link" to="/about">
+                  About
+                </NavLink>
+                <NavLink className="nav-link" to="/contact">
+                  Contact
+                </NavLink>
+              </div>
           </div>
           <div className="navbar-collapse" id="navbar-collapse">
             <div className="navbar-nav">
-              <NavLink className="nav-link" to="/">
-                Home
-              </NavLink>
-              <NavLink className="nav-link" to="/products">
-                Products
-              </NavLink>
-              <NavLink className="nav-link" to="/about">
-                About
-              </NavLink>
-              <NavLink className="nav-link" to="/contact">
-                Contact
-              </NavLink>
+              
 
-              {onlineUser === null || onlineUser === undefined ? (
+              {onlineUser === null || onlineUser === "" ? (
                 <>
                   <NavLink className="nav-link" to="/login">
-                    Sign in
+                    Login in
                   </NavLink>
+                  |
                   <NavLink className="nav-link" to="/signup">
                     Sign up
                   </NavLink>
                 </>
               ) : (
                 <span onClick={handleSignout}>
-                  Sign out ({onlineUser && onlineUser.userName}){" "}
+                  Sign out ({onlineUser && onlineUser.userName})
                 </span>
               )}
             </div>
