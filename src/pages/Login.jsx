@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { useContext } from "react";
-import { StyledAlertBox } from "../components/styled/Alert.styled";
+import { StyledAlertBox, StyledSuccessAlertBox } from "../components/styled/Alert.styled";
 import { SignContext } from "../context/SignContext";
 import { StyledLoginBox } from "./styled/Login.styled";
 import { BsX } from "react-icons/bs";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 
 export default function Login() {
 
-    const { handleChangeLoginInput, handleLogin, onlineUser } = useContext(SignContext)
+    const { handleChangeLoginInput, handleLogin, onlineUser, userAdded } = useContext(SignContext)
 
 
 
@@ -17,7 +18,7 @@ export default function Login() {
         <>
             <StyledLoginBox className="loginBox">
                 {
-                    onlineUser === undefined && <StyledAlertBox>Incorrect username or password. <button> <BsX /></button> </StyledAlertBox>
+                    onlineUser === undefined ? <StyledAlertBox>Incorrect username or password. <button> <BsX /></button> </StyledAlertBox> : (userAdded ? <StyledSuccessAlertBox>kayıt başarılı giriş yapın</StyledSuccessAlertBox> : null)
 
                 }
                 <div className="loginFormBox">
@@ -36,6 +37,10 @@ export default function Login() {
                         </div>
                         <button type="submit" className="btn btn-primary">Sign in</button>
                     </form>
+                </div>
+
+                <div className="createAccountBox">
+                    <span>New to K-Store? <Link to="/signup">Create an account.</Link> </span>
                 </div>
             </StyledLoginBox>
         </>

@@ -55,4 +55,18 @@ export const StyledLoginBox = styled.div`
       cursor: pointer;
     }
   }
+
+  & > .createAccountBox {
+    border: 1px solid #00000078;
+    width: 290px;
+    margin: auto;
+    margin-top: 15px;
+    padding: 2vw;
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: center;
+    & > span > a {
+      color: rgb(47, 129, 247);
+    }
+  }
 `;
