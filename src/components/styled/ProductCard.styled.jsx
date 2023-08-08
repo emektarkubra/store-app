@@ -10,12 +10,16 @@ export const StyledProductCard = styled.div`
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
 
-  & > img {
+  & > a {
+    overflow : hidden;
+  }
+  & > a> img {
     width: 100%;
-    height: 300px;
+    height: 250px;
     min-width: 100%;
+    overflow : hidden;
   }
 
   & > div > h5 {
