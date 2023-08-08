@@ -11,6 +11,10 @@ export const StyledSignupBox = styled.div`
     cursor: pointer;
   }
 
+  & > div > button :hover {
+    color: rgb(230, 237, 243);
+  }
+
   & > div > .brand {
     width: 100px;
     height: 100px;
