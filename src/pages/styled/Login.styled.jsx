@@ -3,34 +3,36 @@ import { styled } from "styled-components";
 export const StyledLoginBox = styled.div`
   margin-top: 1vw;
 
-  & > div > button {
+  & > div > .success-button {
     background-color: #051b11;
     border: none;
     font-size: 14px;
-    color: #0f5132;
+    cursor: pointer;
+  }
+  & > div > .danger-button {
+    background-color: #842029;
+    border: none;
+    font-size: 14px;
     cursor: pointer;
   }
 
-  &> div> .brand {
-    width : 100px;
-    height : 100px;
-    overflow : hidden;
+  & > div > .brand {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
     margin: auto;
+  }
 
+  & > div > .brand > img {
+    width: 100px;
+    height: 100px;
   }
- 
-  &> div> .brand > img{
-    width : 100px;
-    height : 100px;
-  }
-  &> div> p {
+  & > div > p {
     width: 290px;
     margin: auto;
     /* padding: 2vw;   */
-    font-size : 24px;
-    text-align : center;
-  
-
+    font-size: 24px;
+    text-align: center;
   }
 
   & > div > button :hover {
