@@ -7,33 +7,39 @@ export const StyledNavbar = styled.nav`
   font-size: 18px;
   padding: 10px;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: center;
 
   & > .container {
     display: flex;
     justify-content: space-between;
-    
-  }
 
-  & > .container >.navbar-head {
-    width : 380px;
-    display : flex;
-    justify-content : space-around;
-  }
+    & > .navbar-head {
+      width: 350px;
+      display: flex;
+      justify-content: space-around;
+    }
 
+    & > div > div > .nav-link {
+      color: white;
+      padding: 5px;
+      text-decoration: none;
+      &:visited {
+        color: white;
+      }
+    }
 
+    & > .navbar-collapse > .navbar-nav > .signout {
+      cursor: pointer;
+    }
 
-  & > div > div > div > .nav-link {
-    color: white;
-    padding: 5px;
-    text-decoration: none;
-  }
-
-  & > div > div > div > .nav-link :visited {
-    color: white;
-  }
-  &>div>div>div>span {
-    cursor : pointer;
+    & > .navbar-collapse > .navbar-nav > button {
+      background-color: rgb(43, 48, 53);
+      border: none;
+      color: white;
+      font-size: 14px;
+      margin-left: 2px;
+      cursor: pointer;
+    }
   }
 `;
