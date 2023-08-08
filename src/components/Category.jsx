@@ -4,24 +4,21 @@ import { useParams } from "react-router-dom";
 import ProductCard from "./ProductCard";
 
 export default function Category() {
-  const params = useParams()
-  console.log(params)
+  const params = useParams();
 
-  const [categoryProducts, setCategoryProducts] = useState([])
+  const [categoryProducts, setCategoryProducts] = useState([]);
 
-
-  useEffect(()=> {
+  useEffect(() => {
     fetch(`https://fakestoreapi.com/products/category/${params.categoryName}`)
-    .then(res => res.json())
-    .then (res => setCategoryProducts(res))
-    
-  },[params])
+      .then((res) => res.json())
+      .then((res) => setCategoryProducts(res));
+  }, [params]);
 
   return (
     <>
-    {categoryProducts.map(product => <ProductCard product={product} />)}
-    
-      
+      {categoryProducts.map((product) => (
+        <ProductCard id={product.id} product={product} />
+      ))}
     </>
   );
 }

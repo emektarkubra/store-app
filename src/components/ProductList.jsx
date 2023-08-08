@@ -10,7 +10,7 @@ export default function ProductList() {
     <>
       <StyledProductList className="card-container">
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product.id} id={product.id} product={product} />
         ))}
       </StyledProductList>
     </>
