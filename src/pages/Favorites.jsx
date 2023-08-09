@@ -5,9 +5,11 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { FavoriteContext } from "../context/FavoriteContext";
+import { CartContext } from "../context/CartContext";
 
 export default function Favorites() {
   const { setCount } = useContext(FavoriteContext);
+  const { handleAddCarts } = useContext(CartContext);
   const [storedFavList, setStoredFavList] = useState([]);
 
   useEffect(() => {
@@ -22,6 +24,11 @@ export default function Favorites() {
     setStoredFavList(updatedFavList);
     localStorage.setItem("fav", JSON.stringify(updatedFavList));
     setCount((prev) => prev - 1);
+  }
+
+  function handleRemoveFromFavToCart(product) {
+    handleRemoveFavProduct(product);
+    handleAddCarts(product);
   }
 
   return (
@@ -49,11 +56,16 @@ export default function Favorites() {
                   <p className="card-price-text">Price : {product.price} €</p>
                 </div>
 
-                <div className="delete-button-box">
+                <div className="button-box">
                   <button
                     onClick={() => handleRemoveFavProduct(product)}
                     className="delete-button">
                     <BsX />
+                  </button>
+                  <button
+                    onClick={() => handleRemoveFromFavToCart(product)}
+                    className="btn cart-btn">
+                    Add Cart
                   </button>
                 </div>
               </div>

@@ -4,6 +4,7 @@ import PageNotFound from "./components/PageNotFound";
 import Product from "./components/Product";
 import ProductList from "./components/ProductList";
 import About from "./pages/About";
+import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
 import Favorites from "./pages/Favorites";
 import Home from "./pages/Home";
@@ -22,6 +23,7 @@ export default function SiteRoutes() {
           <Route path="product/:productId" element={<Product />} />
         </Route>
         <Route path="/favorites" element={<Favorites />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />

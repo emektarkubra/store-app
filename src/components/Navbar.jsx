@@ -4,17 +4,19 @@ import { SignContext } from "../context/SignContext";
 import { StyledNavbar } from "./styled/Navbar.styled";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { FavoriteContext } from "../context/FavoriteContext";
+import { CartContext } from "../context/CartContext";
 
 export default function Navbar() {
   const { onlineUser, handleSignout } = useContext(SignContext);
   const { count } = useContext(FavoriteContext);
+  const { cartCount } = useContext(CartContext);
 
   return (
     <>
       <StyledNavbar>
         <div className="container">
           <div className="navbar-head">
-            <span className="nav-brand">K-Store</span>
+            <span className="nav-brand">K-Store</span>|
             <div className="navbar-nav">
               <NavLink className="nav-link" to="/">
                 Home
@@ -22,24 +24,28 @@ export default function Navbar() {
               <NavLink className="nav-link" to="/products">
                 Products
               </NavLink>
-              <NavLink className="nav-link" to="/favorites">
-                Favorites ({count})
+              <NavLink className="nav-link" to="/about">
+                About
               </NavLink>
-              <NavLink className="nav-link" to="/cart">
-                Cart (0)
+              <NavLink className="nav-link" to="/contact">
+                Contact
               </NavLink>
+              {onlineUser && (
+                <>
+                  <NavLink className="nav-link" to="/favorites">
+                    Favorites ({count})
+                  </NavLink>
+                  <NavLink className="nav-link" to="/cart">
+                    Cart ({cartCount})
+                  </NavLink>
+                </>
+              )}
             </div>
           </div>
           <div className="navbar-collapse" id="navbar-collapse">
             <div className="navbar-nav">
               {onlineUser === null || onlineUser === "" ? (
                 <>
-                  <NavLink className="nav-link" to="/about">
-                    About
-                  </NavLink>
-                  <NavLink className="nav-link" to="/contact">
-                    Contact
-                  </NavLink>
                   <NavLink className="nav-link" to="/login">
                     Login in
                   </NavLink>

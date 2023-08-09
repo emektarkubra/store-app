@@ -15,9 +15,12 @@ export const StyledNavbar = styled.nav`
     justify-content: space-between;
 
     & > .navbar-head {
-      width: 360px;
+      width: 600px;
       display: flex;
-      justify-content: space-around;
+      justify-content: start;
+      & > span {
+        margin-right: 5px;
+      }
     }
 
     & > div > div > .nav-link {

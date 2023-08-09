@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 import { FavoriteContext } from "../context/FavoriteContext";
 import { SignContext } from "../context/SignContext";
 import { StyledProduct } from "./styled/Product.styled";
@@ -11,6 +12,7 @@ export default function Product() {
 
   const { onlineUser } = useContext(SignContext);
   const { handleAddFavorites } = useContext(FavoriteContext);
+  const { handleAddCarts } = useContext(CartContext)
 
   const [product, setProduct] = useState({});
 
@@ -31,11 +33,14 @@ export default function Product() {
           <h5 className="card-title">{product.title}</h5>
           <p className="card-text">{product.description}</p>
           <p className="card-price-text">Price : {product.price} €</p>
-          {onlineUser !== null ? (
-            <button onClick={() => handleAddFavorites(product)} className="btn">
+          {onlineUser !== null ? (<>
+            <button onClick={() => handleAddFavorites(product)} className="btn fav-btn">
               Fav
             </button>
-          ) : null}
+            <button onClick={() => handleAddCarts(product)} className="btn cart-btn">
+            Add Cart
+          </button>
+          </>) : null}
         </div>
       </StyledProduct>
     </>

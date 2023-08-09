@@ -7,6 +7,11 @@ export const FavoriteContext = createContext();
 export default function FavoriteContextProvider({ children }) {
   const [count, setCount] = useState(0);
 
+  useEffect(()=>{
+    const storedFavList = JSON.parse(localStorage.getItem("fav"))
+    setCount(storedFavList ? storedFavList.length : 0)
+  },[])
+
   function handleAddFavorites(product) {
     const favList = JSON.parse(localStorage.getItem("fav"));
 

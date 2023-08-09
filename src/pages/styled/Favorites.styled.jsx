@@ -5,16 +5,16 @@ export const StyledFavoriteBox = styled.div`
   margin: 20px;
   margin-left: 70px;
 
-  &> .explain {
+  & > .explain {
     border: 1px solid #00000061;
-    width : 400px;
-        font-size : 20px;
-        border-radius : 5px;
-        padding: 10px;
-    }
+    width: 400px;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 10px;
+  }
   & > .card-body {
     border: 1px solid #00000061;
-    border-radius : 5px;
+    border-radius: 5px;
     width: 100%;
     height: 100px;
     overflow: hidden;
@@ -22,9 +22,8 @@ export const StyledFavoriteBox = styled.div`
     justify-content: space-between;
     margin-bottom: 5px;
     padding: 15px;
-    
 
-    &>.product-image-box {
+    & > .product-image-box {
       width: 15%;
       overflow: hidden;
       padding: 15px;
@@ -32,35 +31,51 @@ export const StyledFavoriteBox = styled.div`
         width: 100%;
         height: 100%;
         overflow: hidden;
-      }  
+      }
     }
 
     & > .card-content {
-      width: 100%;
+      width: 300px;
       padding: 15px;
 
-      &> a> .card-title {
-        font-size:15px;
-        margin : 0;
+      & > a > .card-title {
+        font-size: 15px;
+        margin: 0;
       }
 
-      &> .card-price-text {
-        font-size:15px;
+      & > .card-price-text {
+        font-size: 15px;
         font-weight: bold;
       }
     }
+    & > .button-box {
+      width: 75px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
-   
+      & > .delete-button {
+        border: none;
+        background-color: white;
+        font-size: 18px;
+        outline: none;
+        cursor: pointer;
+        &:hover {
+          color: red;
+        }
+      }
 
-    &>.delete-button-box > .delete-button {
-    border : none;
-    background-color : white; 
-    font-size : 18px;
-    outline : none;
-    cursor : pointer;
-    &:hover {
-        color :red;
-    }
+      & > .cart-btn {
+        width: 100%;
+        height: 25px;
+        background-color: #6c757d;
+        border: 1px solid #565e64;
+        border-radius: 5px;
+        color: white;
+        font-size: 12px;
+        outline: none;
+        cursor: pointer;
+      }
     }
   }
 `;
