@@ -15,7 +15,7 @@ export const StyledNavbar = styled.nav`
     justify-content: space-between;
 
     & > .navbar-head {
-      width: 350px;
+      width: 360px;
       display: flex;
       justify-content: space-around;
     }

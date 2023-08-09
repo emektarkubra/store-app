@@ -3,8 +3,11 @@ import { BsX } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useContext } from "react";
+import { FavoriteContext } from "../context/FavoriteContext";
 
 export default function Favorites() {
+  const { setCount } = useContext(FavoriteContext);
   const [storedFavList, setStoredFavList] = useState([]);
 
   useEffect(() => {
@@ -14,10 +17,11 @@ export default function Favorites() {
 
   function handleRemoveFavProduct(product) {
     const updatedFavList = storedFavList.filter(
-      (item) => item.id !== product.id
+      (item) => item.id !== { ...product, isAdded: false }.id
     );
     setStoredFavList(updatedFavList);
     localStorage.setItem("fav", JSON.stringify(updatedFavList));
+    setCount((prev) => prev - 1);
   }
 
   return (

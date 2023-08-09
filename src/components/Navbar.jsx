@@ -3,9 +3,11 @@ import { NavLink } from "react-router-dom";
 import { SignContext } from "../context/SignContext";
 import { StyledNavbar } from "./styled/Navbar.styled";
 import { BsFillMoonStarsFill } from "react-icons/bs";
+import { FavoriteContext } from "../context/FavoriteContext";
 
 export default function Navbar() {
   const { onlineUser, handleSignout } = useContext(SignContext);
+  const { count } = useContext(FavoriteContext);
 
   return (
     <>
@@ -21,7 +23,7 @@ export default function Navbar() {
                 Products
               </NavLink>
               <NavLink className="nav-link" to="/favorites">
-                Favorites
+                Favorites ({count})
               </NavLink>
               <NavLink className="nav-link" to="/cart">
                 Cart (0)
@@ -45,7 +47,6 @@ export default function Navbar() {
                   <NavLink className="nav-link" to="/signup">
                     Sign up
                   </NavLink>
-                 
                 </>
               ) : (
                 <span className="signout" onClick={handleSignout}>
@@ -53,9 +54,9 @@ export default function Navbar() {
                 </span>
               )}
 
-               <button>
-                    <BsFillMoonStarsFill />
-                </button>
+              <button>
+                <BsFillMoonStarsFill />
+              </button>
             </div>
           </div>
         </div>

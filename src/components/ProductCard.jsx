@@ -1,42 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { FavoriteContext } from "../context/FavoriteContext";
 import { SignContext } from "../context/SignContext";
 import { StyledProductCard } from "./styled/ProductCard.styled";
 
 export default function ProductCard({ product, id }) {
   const { onlineUser } = useContext(SignContext);
-
-
-  // added favorite products
-  function handleAddFavorites(e) {
-    const favList = localStorage.getItem("fav");
-
-    const favProduct = {
-      id: product.id,
-      title: product.title,
-      image: product.image,
-      price: product.price,
-      description : product.description,
-    };
-
-    if (favList === null) {
-      localStorage.setItem("fav", JSON.stringify([{ ...favProduct }]));
-    } else {
-      const storedFavList = JSON.parse(localStorage.getItem("fav"));
-      // if it exist fav product, delete
-      if (storedFavList.find((favItem) => favItem.id === favProduct.id)) {
-        let index = storedFavList.findIndex(
-          (favItem) => favItem.id === favProduct.id
-        );
-        storedFavList.splice(index, 1);
-        localStorage.setItem("fav", JSON.stringify(storedFavList));
-      // if it doesnt exist, add
-      } else {
-        const newStoredFavList = [...storedFavList, { ...favProduct }];
-        localStorage.setItem("fav", JSON.stringify(newStoredFavList));
-      }
-    }
-  }
+  const { handleAddFavorites } = useContext(FavoriteContext);
 
   return (
     <>
@@ -49,7 +19,7 @@ export default function ProductCard({ product, id }) {
           <p className="card-text">{product.description.substring(0, 40)}..</p>
           <p className="card-price-text">{product.price} €</p>
           {onlineUser !== null ? (
-            <button onClick={handleAddFavorites} className="btn">
+            <button onClick={() => handleAddFavorites(product)} className="btn">
               Fav
             </button>
           ) : null}
