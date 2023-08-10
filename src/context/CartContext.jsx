@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { useContext } from "react";
 import { useState } from "react";
 import { createContext } from "react";
 
@@ -8,12 +7,19 @@ export const CartContext = createContext();
 export default function CartContextProvider({ children }) {
   const [cartCount, setCartCount] = useState(0);
 
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(() => {
+    const storedTotalPrice = JSON.parse(localStorage.getItem("totalPrice"));
+    return storedTotalPrice ?? 0;
+  });
 
   useEffect(() => {
     const storedCartList = JSON.parse(localStorage.getItem("cart"));
     setCartCount(storedCartList ? storedCartList.length : 0);
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("totalPrice", JSON.stringify(totalPrice));
+  }, [totalPrice]);
 
   function handleAddCarts(product) {
     const cartList = JSON.parse(localStorage.getItem("cart"));

@@ -104,7 +104,7 @@ export default function Carts() {
           )}
         </div>
       </StyledCartBox>
-      <Payment />
+      {storedCartList && storedCartList.length !== 0 && <Payment />}
     </>
   );
 }
