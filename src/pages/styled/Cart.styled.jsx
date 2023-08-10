@@ -2,11 +2,10 @@ import { styled } from "styled-components";
 
 export const StyledCartBox = styled.div`
   width: 90%;
-  margin: 20px;
-  margin-left: 70px;
-
+  margin: 20px 20px 45px 70px;
   & > .card {
     overflow: hidden;
+
     & > .explain {
       width: 400px;
       font-size: 20px;

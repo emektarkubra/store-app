@@ -6,10 +6,11 @@ import { StyledCartBox } from "./styled/Cart.styled";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { FavoriteContext } from "../context/FavoriteContext";
+import Payment from "../components/Payment";
 
 export default function Carts() {
   const [storedCartList, setStoredCartList] = useState([]);
-  const { setCartCount } = useContext(CartContext);
+  const { setCartCount, setTotalPrice } = useContext(CartContext);
   const { setCount } = useContext(FavoriteContext);
 
   useEffect(() => {
@@ -25,6 +26,7 @@ export default function Carts() {
       setStoredCartList(updatedCartList);
       localStorage.setItem("cart", JSON.stringify(updatedCartList));
       setCartCount((prev) => prev - 1);
+      setTotalPrice((prev) => parseFloat((prev - product.price).toFixed(2)));
     }
   }
 
@@ -101,11 +103,8 @@ export default function Carts() {
             <div className="explain">YOUR SHOPPING BASKET IS EMPTY</div>
           )}
         </div>
-        {/* <div className="credit-box">
-
-          slfmaşlm
-        </div> */}
       </StyledCartBox>
+      <Payment />
     </>
   );
 }
