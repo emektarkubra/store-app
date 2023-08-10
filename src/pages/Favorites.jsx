@@ -26,7 +26,7 @@ export default function Favorites() {
     setCount((prev) => prev - 1);
   }
 
-  function handleRemoveFromFavToCart(product) {
+  function handleMoveFromFavToCart(product) {
     handleRemoveFavProduct(product);
     handleAddCarts(product);
   }
@@ -63,7 +63,7 @@ export default function Favorites() {
                     <BsX />
                   </button>
                   <button
-                    onClick={() => handleRemoveFromFavToCart(product)}
+                    onClick={() => handleMoveFromFavToCart(product)}
                     className="btn cart-btn">
                     Add Cart
                   </button>
