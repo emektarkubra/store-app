@@ -6,7 +6,7 @@ export const StyledProductCard = styled.div`
   height: 500px;
   padding: 15px;
   margin: 20px;
-  margin-top :5px;
+  margin-top: 75px;
   overflow: hidden;
   border-radius: 5px;
   display: flex;

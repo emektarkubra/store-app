@@ -33,7 +33,7 @@ export default function Product() {
           <button
             onClick={() => handleAddFavorites(product)}
             className="btn fav-btn">
-            <BsBookmark />
+            {onlineUser && <BsBookmark />}
           </button>
           <h5 className="card-title">{product.title}</h5>
           <p className="card-text">{product.description}</p>

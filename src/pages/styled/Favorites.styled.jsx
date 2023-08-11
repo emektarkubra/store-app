@@ -2,8 +2,7 @@ import { styled } from "styled-components";
 
 export const StyledFavoriteBox = styled.div`
   width: 40%;
-  margin: 20px;
-  margin-left: 70px;
+  margin: 80px;
 
   & > .explain {
     border: 1px solid #00000061;
@@ -16,7 +15,7 @@ export const StyledFavoriteBox = styled.div`
     border: 1px solid #00000061;
     border-radius: 5px;
     width: 100%;
-    height: 100px;
+    height: 140px;
     overflow: hidden;
     display: flex;
     justify-content: space-between;

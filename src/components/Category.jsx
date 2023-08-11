@@ -16,8 +16,8 @@ export default function Category() {
 
   return (
     <>
-      {categoryProducts.map((product) => (
-        <ProductCard id={product.id} product={product} />
+      {categoryProducts.map((product, index) => (
+        <ProductCard key={index} id={product.id} product={product} />
       ))}
     </>
   );

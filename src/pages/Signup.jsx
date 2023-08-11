@@ -1,8 +1,5 @@
 import { useContext } from "react";
-import {
-  StyledAlertBox,
-  StyledSuccessAlertBox,
-} from "../components/styled/Alert.styled";
+import { StyledAlertBox } from "../components/styled/Alert.styled";
 import { SignContext } from "../context/SignContext";
 import { StyledSignupBox } from "./styled/Signup.styled";
 import { BsX } from "react-icons/bs";
@@ -10,13 +7,8 @@ import logo from "../assest/logo.png";
 import { Link } from "react-router-dom";
 
 export default function Signup() {
-  const { handleChangeSignupInput, handleSignup, user, userAdded } =
+  const { handleChangeSignupInput, handleSignup, exist } =
     useContext(SignContext);
-
-  const storedUserList = JSON.parse(localStorage.getItem("userList"));
-  const exist = storedUserList
-    ? storedUserList.some((loginUser) => loginUser.email === user.email)
-    : false;
 
   return (
     <StyledSignupBox className="loginBox">
@@ -26,16 +18,13 @@ export default function Signup() {
         </div>
         <p>Welcome to K-Store! </p>
       </div>
-      {userAdded ? (
-        exist ? (
-          <StyledAlertBox>
-            User is exist
-            <button>
-              
-              <BsX />
-            </button>
-          </StyledAlertBox>
-        ) : null
+      {exist ? (
+        <StyledAlertBox>
+          User is exist
+          <button>
+            <BsX />
+          </button>
+        </StyledAlertBox>
       ) : null}
       <div className="loginFormBox">
         <form onSubmit={handleSignup}>

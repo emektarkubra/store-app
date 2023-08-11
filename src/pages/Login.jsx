@@ -14,6 +14,18 @@ import logo from "../assest/logo.png";
 export default function Login() {
   const { handleChangeLoginInput, handleLogin, onlineUser, userAdded } =
     useContext(SignContext);
+
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+
+  useEffect(() => {
+    if (userAdded) {
+      setShowSuccessAlert(true);
+      setTimeout(() => {
+        setShowSuccessAlert(false);
+      }, 3500);
+    }
+  }, [userAdded]);
+
   return (
     <>
       <StyledLoginBox className="loginBox">
@@ -24,7 +36,7 @@ export default function Login() {
           <p>Login in to K-Store</p>
         </div>
         {onlineUser === null ? (
-          userAdded ? (
+          showSuccessAlert ? (
             <StyledSuccessAlertBox>
               Congratulations,registered. Login your account{" "}
               <button className="success-button">

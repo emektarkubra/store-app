@@ -31,7 +31,7 @@ export default function ProductCard({ product, id }) {
             setIsAvailable(!isAvailable);
           }}
           className="btn fav-btn">
-          {isAvailable ? <BsBookmarkFill /> : <BsBookmark />}
+          {onlineUser && (isAvailable ? <BsBookmarkFill /> : <BsBookmark />)}
         </button>
         <Link to={`/products/product/${id}`}>
           <img src={product.image} className="card-img" />

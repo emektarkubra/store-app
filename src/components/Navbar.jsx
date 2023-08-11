@@ -60,9 +60,9 @@ export default function Navbar() {
                 </span>
               )}
 
-              <button>
+              {/* <button>
                 <BsFillMoonStarsFill />
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

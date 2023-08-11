@@ -6,5 +6,5 @@ export const StyledProductList = styled.div`
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 30px;
+  margin: 20px;
 `;

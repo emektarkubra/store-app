@@ -18,6 +18,7 @@ export default function SignContextProvider({ children }) {
   const [userList, setUserList] = useState([]);
   const [userListcount, setUserListCount] = useState(0);
   const [userAdded, setUserAdded] = useState(false);
+  const [exist, setExist] = useState(false);
 
   useEffect(() => {
     const storedUserList = JSON.parse(localStorage.getItem("userList"));
@@ -51,6 +52,10 @@ export default function SignContextProvider({ children }) {
       setUserAdded(true);
       navigate("/login");
     }
+    const storedUserList = JSON.parse(localStorage.getItem("userList"));
+    storedUserList.find((loginUser) => loginUser.email === user.email)
+      ? setExist(true)
+      : setExist(false);
 
     e.preventDefault();
   }
@@ -95,15 +100,15 @@ export default function SignContextProvider({ children }) {
         user.email === userValue.email && user.password === userValue.password
     );
 
-    if(loginUser){
+    if (loginUser) {
       setLoginUser(loginUser);
       setOnlineUser(loginUser);
       setOnlineUserCount((prev) => prev + 1);
       loginUser === undefined ? navigate("/login") : navigate("/");
-    }else {
-      setOnlineUser("")
+    } else {
+      setOnlineUser("");
     }
-    
+
     e.preventDefault();
   }
 
@@ -128,6 +133,7 @@ export default function SignContextProvider({ children }) {
           loginUser,
           user,
           userAdded,
+          exist,
         }}>
         {children}
       </SignContext.Provider>
