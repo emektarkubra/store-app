@@ -6,14 +6,14 @@ import { CartContext } from "../context/CartContext";
 import { FavoriteContext } from "../context/FavoriteContext";
 import { SignContext } from "../context/SignContext";
 import { StyledProduct } from "./styled/Product.styled";
+import { BsBookmark } from "react-icons/bs";
 
 export default function Product() {
   const params = useParams();
 
   const { onlineUser } = useContext(SignContext);
   const { handleAddFavorites } = useContext(FavoriteContext);
-  const { handleAddCarts } = useContext(CartContext)
-
+  const { handleAddCarts } = useContext(CartContext);
   const [product, setProduct] = useState({});
 
   useEffect(() => {
@@ -30,17 +30,23 @@ export default function Product() {
         </div>
         <hr />
         <div className="card-body">
+          <button
+            onClick={() => handleAddFavorites(product)}
+            className="btn fav-btn">
+            <BsBookmark />
+          </button>
           <h5 className="card-title">{product.title}</h5>
           <p className="card-text">{product.description}</p>
           <p className="card-price-text">Price : {product.price} €</p>
-          {onlineUser !== null ? (<>
-            <button onClick={() => handleAddFavorites(product)} className="btn fav-btn">
-              Fav
-            </button>
-            <button onClick={() => handleAddCarts(product)} className="btn cart-btn">
-            Add Cart
-          </button>
-          </>) : null}
+          {onlineUser !== null ? (
+            <>
+              <button
+                onClick={() => handleAddCarts(product)}
+                className="btn cart-btn">
+                Add Cart
+              </button>
+            </>
+          ) : null}
         </div>
       </StyledProduct>
     </>

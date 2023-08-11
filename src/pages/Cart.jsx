@@ -65,39 +65,35 @@ export default function Carts() {
         <div className="card">
           <h1>Cart: </h1>
           {storedCartList && storedCartList.length !== 0 ? (
-            storedCartList.map((product, index) => (
-              <>
-                <div className="card-body">
-                  <div className="product-image-box">
-                    <img key={index} src={product.image} className="card-img" />
-                  </div>
+            storedCartList.map((product) => (
+              <div key={product.id} className="card-body">
+                <div className="product-image-box">
+                  <img src={product.image} className="card-img" />
+                </div>
 
-                  <div className="card-content">
-                    <Link
-                      className="link"
-                      to={`/products/product/${product.id}`}>
-                      <h5 className="card-title">
-                        {product.title.toUpperCase()}
-                      </h5>
-                    </Link>
-                    <div className="button-box">
-                      <button
-                        onClick={() => handleMoveFromCartToFav(product)}
-                        className="fav-button">
-                        <BsBookmark />
-                      </button>
-                      <button
-                        onClick={() => handleRemoveCartProduct(product)}
-                        className="delete-button">
-                        <BsX />
-                      </button>
-                    </div>
-                  </div>
-                  <div className="card-price-box">
-                    <p className="card-price-text">Price : {product.price} €</p>
+                <div className="card-content">
+                  <Link className="link" to={`/products/product/${product.id}`}>
+                    <h5 className="card-title">
+                      {product.title.toUpperCase()}
+                    </h5>
+                  </Link>
+                  <div className="button-box">
+                    <button
+                      onClick={() => handleMoveFromCartToFav(product)}
+                      className="fav-button">
+                      <BsBookmark />
+                    </button>
+                    <button
+                      onClick={() => handleRemoveCartProduct(product)}
+                      className="delete-button">
+                      <BsX />
+                    </button>
                   </div>
                 </div>
-              </>
+                <div className="card-price-box">
+                  <p className="card-price-text">Price : {product.price} €</p>
+                </div>
+              </div>
             ))
           ) : (
             <div className="explain">YOUR SHOPPING BASKET IS EMPTY</div>

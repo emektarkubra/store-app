@@ -60,9 +60,7 @@ export const StyledFavoriteBox = styled.div`
         font-size: 18px;
         outline: none;
         cursor: pointer;
-        &:hover {
-          color: red;
-        }
+        text-shadow: 0 0 3px #000;
       }
 
       & > .cart-btn {

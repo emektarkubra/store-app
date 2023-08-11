@@ -1,5 +1,5 @@
 import { StyledFavoriteBox } from "./styled/Favorites.styled";
-import { BsX } from "react-icons/bs";
+import { BsBookmarkFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -37,39 +37,37 @@ export default function Favorites() {
         <h1>Favorites: </h1>
 
         {storedFavList && storedFavList.length !== 0 ? (
-          storedFavList.map((product, index) => (
-            <>
-              <div className="card-body">
-                <div className="product-image-box">
-                  <img key={index} src={product.image} className="card-img" />
-                </div>
-
-                <hr />
-
-                <div className="card-content">
-                  <Link className="link" to={`/products/product/${product.id}`}>
-                    <h5 className="card-title">{product.title}</h5>
-                  </Link>
-                  <p className="card-text">
-                    {product.description.substring(0, 60)}..
-                  </p>
-                  <p className="card-price-text">Price : {product.price} €</p>
-                </div>
-
-                <div className="button-box">
-                  <button
-                    onClick={() => handleRemoveFavProduct(product)}
-                    className="delete-button">
-                    <BsX />
-                  </button>
-                  <button
-                    onClick={() => handleMoveFromFavToCart(product)}
-                    className="btn cart-btn">
-                    Add Cart
-                  </button>
-                </div>
+          storedFavList.map((product) => (
+            <div key={product.id} className="card-body">
+              <div className="product-image-box">
+                <img src={product.image} className="card-img" />
               </div>
-            </>
+
+              <hr />
+
+              <div className="card-content">
+                <Link className="link" to={`/products/product/${product.id}`}>
+                  <h5 className="card-title">{product.title}</h5>
+                </Link>
+                <p className="card-text">
+                  {product.description.substring(0, 60)}..
+                </p>
+                <p className="card-price-text">Price : {product.price} €</p>
+              </div>
+
+              <div className="button-box">
+                <button
+                  onClick={() => handleRemoveFavProduct(product)}
+                  className="delete-button">
+                  <BsBookmarkFill className="mark-fill" />
+                </button>
+                <button
+                  onClick={() => handleMoveFromFavToCart(product)}
+                  className="btn cart-btn">
+                  Add Cart
+                </button>
+              </div>
+            </div>
           ))
         ) : (
           <div className="explain">YOUR SHOPPING BASKET IS EMPTY</div>

@@ -13,13 +13,13 @@ export const StyledProductCard = styled.div`
   justify-content: space-between;
 
   & > a {
-    overflow : hidden;
+    overflow: hidden;
   }
-  & > a> img {
+  & > a > img {
     width: 100%;
     height: 250px;
     min-width: 100%;
-    overflow : hidden;
+    overflow: hidden;
   }
 
   & > div > h5 {
@@ -32,18 +32,7 @@ export const StyledProductCard = styled.div`
     font-size: 18px;
     font-weight: bold;
   }
-  & > .card-body > .fav-btn {
-    width: 100%;
-    height: 25px;
-    background-color: #0d6efd;
-    border: 1px solid #034fc0;
-    border-radius: 5px;
-    color: white;
-    font-size: 12px;
-    outline: none;
-    margin-bottom : 2px;
-    cursor: pointer;
-  }
+
   & > .card-body > .cart-btn {
     width: 100%;
     height: 25px;
@@ -53,6 +42,16 @@ export const StyledProductCard = styled.div`
     color: white;
     font-size: 12px;
     outline: none;
+    cursor: pointer;
+  }
+  & > .fav-btn {
+    height: 25px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    outline: none;
+    text-align: end;
     cursor: pointer;
   }
 `;
