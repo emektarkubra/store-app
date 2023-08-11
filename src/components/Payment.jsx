@@ -10,7 +10,7 @@ export default function Payment() {
         <div className="credit-box">
           <div className="total-credit-box">
             <h3>TOTAL</h3>
-            <p>{totalPrice.toFixed(2)} TL</p>
+            <p>{totalPrice.toFixed(2)} €</p>
           </div>
           <div className="total-credit-quantity">
             <p>*KDV DAHİL</p>

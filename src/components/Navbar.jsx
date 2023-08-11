@@ -33,10 +33,10 @@ export default function Navbar() {
               {onlineUser && (
                 <>
                   <NavLink className="nav-link" to="/favorites">
-                    Favorites ({count})
+                    Favorites <span className="badge badge-fav">{count}</span>
                   </NavLink>
                   <NavLink className="nav-link" to="/cart">
-                    Cart ({cartCount})
+                    Cart <span className="badge badge-cart">{cartCount}</span>
                   </NavLink>
                 </>
               )}

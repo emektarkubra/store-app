@@ -9,6 +9,7 @@ export const StyledNavbar = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  z-index : 0;
 
   & > .container {
     display: flex;
@@ -30,6 +31,34 @@ export const StyledNavbar = styled.nav`
       &:visited {
         color: white;
       }
+      &> .badge-fav {
+       border: 1px solid #dc3545;
+       background-color :#dc3545;
+       width : 22px;
+       font-size : 13px;
+       position: absolute;
+       padding :0;
+       left: 385px;
+       top: 8px;
+       z-index : 1;
+       text-align : center;
+       border-radius : 8px;
+
+      }
+      &> .badge-cart {
+       border: 1px solid #dc3545;
+       background-color :#dc3545;
+       width : 22px;
+       font-size : 13px;
+       position: absolute;
+       padding :0;
+       left: 435px;
+       top: 8px;
+       z-index : 1;
+       text-align : center;
+       border-radius : 8px;
+
+      }
     }
 
     & > .navbar-collapse > .navbar-nav > .signout {
@@ -45,4 +74,5 @@ export const StyledNavbar = styled.nav`
       cursor: pointer;
     }
   }
+
 `;
